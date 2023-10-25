@@ -1,4 +1,4 @@
-package event-transformer-sap
+package eventTransformerSap
 
 import (
 	"encoding/json"
