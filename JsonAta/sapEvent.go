@@ -7,14 +7,14 @@ import (
 
 	jsonata "github.com/blues/jsonata-go"
 )
-
 const jsonString = `
-    {
-        "orders": [
-            {"price": 10, "quantity": 3},
-            {"price": 0.5, "quantity": 10},
-            {"price": 100, "quantity": 1}
-        ]
+	{"manufacturingOrder":"000432"}
+`
+const jsonAtaExpr = `
+    $.{
+        "operationRequest":{
+        "id":manufacturingOrder
+	}
     }
 `
 
@@ -29,7 +29,7 @@ func TransformSAPOrder() {
 	}
 
 	// Create expression.
-	e := jsonata.MustCompile("$sum(orders.(price*quantity))")
+	e := jsonata.MustCompile(jsonAtaExpr)
 
 	// Evaluate.
 	res, err := e.Eval(data)
