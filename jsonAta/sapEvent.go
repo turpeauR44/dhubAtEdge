@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"ioutil"
+	"io/ioutil"
 
 	jsonata "github.com/blues/jsonata-go"
 )
