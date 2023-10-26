@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"io/ioutil"
-
 	jsonata "github.com/blues/jsonata-go"
 )
 
@@ -17,7 +15,7 @@ const jsonAtaExpr = `
     }
 `
 
-func TransformSAPOrderString(jsonString string) {
+func TransformSAPOrderString(jsonString string)(interface{}) {
 	var data interface{}
 	// Decode JSON.
 	err := json.Unmarshal([]byte(jsonString), &data)
@@ -27,7 +25,7 @@ func TransformSAPOrderString(jsonString string) {
 	return TransformSAPOrder(data) 
 }
 
-func TransformSAPOrder(data interface{}) {
+func TransformSAPOrder(data interface{})(interface{}) {
 	e := jsonata.MustCompile(jsonAtaExpr)
 	// Evaluate.
 	res, err := e.Eval(data)
