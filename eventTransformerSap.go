@@ -13,7 +13,7 @@ const jsonString = `
         "orders": [
             {"price": 10, "quantity": 3},
             {"price": 0.5, "quantity": 10},
-            {"price": 100, "quantity": 1}
+            {"price": 2000, "quantity": 1}
         ]
     }
 `
