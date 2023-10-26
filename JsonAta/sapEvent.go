@@ -7,9 +7,7 @@ import (
 
 	jsonata "github.com/blues/jsonata-go"
 )
-const jsonString = `
-	{"manufacturingOrder":"000432"}
-`
+
 const jsonAtaExpr = `
     $.{
         "operationRequest":{
@@ -18,7 +16,7 @@ const jsonAtaExpr = `
     }
 `
 
-func TransformSAPOrder() {
+func TransformSAPOrderString(jsonString string) {
 
 	var data interface{}
 
@@ -29,6 +27,19 @@ func TransformSAPOrder() {
 	}
 
 	// Create expression.
+	e := jsonata.MustCompile(jsonAtaExpr)
+
+	// Evaluate.
+	res, err := e.Eval(data)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(string(res))
+	// Output: 135
+}
+
+func TransformSAPOrder(data interface{}) {
 	e := jsonata.MustCompile(jsonAtaExpr)
 
 	// Evaluate.
