@@ -35,7 +35,7 @@ func TransformPLMArticle(data interface{})(interface{}) {
 	return res
 }
 
-func TransformSAPOrder_test() {
+func TransformPLMArticle_test() {
 	res = TransformSAPOrderString(plmArticle_sample)
 	fmt.Println(res)
 }
