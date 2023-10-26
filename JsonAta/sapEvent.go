@@ -1,4 +1,4 @@
-package sapEvent
+package jsonAtaTransform
 
 import (
 	"encoding/json"
@@ -37,6 +37,6 @@ func TransformSAPOrder() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(res)
+	fmt.Println(string(res))
 	// Output: 135
 }
