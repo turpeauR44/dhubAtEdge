@@ -7,7 +7,7 @@ import (
 	jsonata "github.com/blues/jsonata-go"
 )
 
-const jsonAtaExpr = `
+const PLMArticle_jsonAtaExpr = `
     $.data.{
         "materialDefinition":{
         "id":article
